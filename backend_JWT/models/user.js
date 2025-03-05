@@ -18,8 +18,7 @@ mongoose.connect(process.env.CONNECTION_STRING)
 const userSchema = mongoose.Schema({
     username:String,
     email:String,
-    password:String,
-    age:Number
+    password:String
 });
 
 
