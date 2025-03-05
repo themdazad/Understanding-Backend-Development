@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>CRUD on FileSystem</title>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto p-6">
+        <!-- Input Form -->
+        <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Create a File</h2>
+            <form class="space-y-4" method="post" action="/create">
+                <input name="title" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="File Name" required />
+                <textarea name="details" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Write Descriptions" rows="4" required></textarea>
+                <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Create</button>
+            </form>
+        </div>
+        
+        <!-- Task List -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <% if(files.length > 0){ %>
+                <% files.forEach(function(val){ %>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <h1 class="text-lg font-bold mb-2"><%= val %></h1>                       
+                        <div class="flex justify-between items-center text-blue-500 font-medium">
+                            <a href="/update/<%= val %>" class="flex gap-1 hover:underline">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>Update</a>
+                            <a color-danger" href="/delete/<%= val %>" class="flex gap-1 hover:underline text-red-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>Delete
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <h1 class="text-xl font-bold text-center col-span-full">No Files Available!</h1>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

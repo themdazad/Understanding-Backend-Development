@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Edit User - Futuristic UI</title>
+    <style>
+        /* Futuristic Background */
+        body {
+            background: radial-gradient(circle, #0f172a, #020617);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .glass-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 4px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Neon Input Fields */
+        .neon-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .neon-input:focus {
+            box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Neon Button */
+        .neon-button {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
+        }
+        .neon-button:hover {
+            box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-6 flex justify-center items-center min-h-screen">
+        <div class="glass-card p-8 max-w-lg w-full rounded-lg">
+            <a href="/read" class="text-cyan-400 text-sm mb-4 block text-center hover:text-cyan-300 transition">👤 View All Users</a>
+            
+            <h2 class="text-3xl font-semibold mb-6 text-center text-cyan-300">Edit User</h2>
+            
+            <form class="space-y-6" method="post" action="/update/<%=data._id%>">
+                <div class="space-y-4">
+                    <input name="name" class="neon-input w-full" placeholder="Name" value="<%=data.name%>" required />
+                    <input name="email" class="neon-input w-full" placeholder="Email" value="<%=data.email%>" required />
+                    <input name="image_url" class="neon-input w-full" placeholder="Image URL" value="<%=data.image_url%>" required />
+                </div>
+                <button class="w-full bg-cyan-500 neon-button text-white py-3 rounded-lg hover:bg-cyan-600 transition">🚀 Update</button>
+            </form>
+
+            <!-- Go to Home Page Button -->
+            <div class="text-center mt-6">
+                <a href="/" class="bg-green-500 neon-button text-white py-3 px-6 rounded-lg hover:bg-green-600 transition">🏠 Go to Home Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

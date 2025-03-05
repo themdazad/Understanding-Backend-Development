@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>All Users</title>
+    <style>
+        /* Futuristic Background */
+        body {
+            background: radial-gradient(circle, #0f172a, #020617);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .glass-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Neon Button Effects */
+        .neon-button {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.5);
+        }
+        .neon-button:hover {
+            box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Image Style */
+        .user-img {
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-6 text-center">
+        <h1 class="text-4xl font-bold mb-6 text-cyan-400">All Users</h1>
+        
+        <!-- Create User Button -->
+        <div class="mb-6">
+            <a href="/" class="bg-blue-500 neon-button text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition">Create New User</a>
+        </div>
+
+        <!-- User List -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <% users.forEach(function(user){ %>
+                <div class="glass-card p-6 rounded-lg">
+                    <img src="<%= user.image_url %>" alt="User Image" class="w-full h-40 object-cover user-img mb-4">
+                    <h2 class="text-xl font-semibold text-cyan-300"><%= user.name %></h2>
+                    <p class="text-gray-300"><%= user.email %></p>
+                    
+                    <!-- Edit & Delete Buttons -->
+                    <div class="mt-4 flex gap-2 justify-center">
+                        <a href="/edit/<%=user._id%>" class="bg-yellow-500 neon-button text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">Edit</a>
+                        <a href="/delete/<%=user._id%>" class="bg-red-500 neon-button text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Delete</a>
+                    </div>
+                </div>
+            <% }) %>  
+        </div>
+
+        <!-- Go to Home Page Button -->
+        <div class="mt-8">
+            <a href="/" class="bg-green-500 neon-button text-white py-3 px-6 rounded-lg hover:bg-green-600 transition">Go to Home Page</a>
+        </div>
+    </div>
+</body>
+</html>

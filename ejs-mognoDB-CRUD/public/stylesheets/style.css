@@ -1,0 +1,12 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.card-container{
+    max-height: 500px;
+    max-width: 400px;
+    background-color:bisque;
+    margin:8px;
+}

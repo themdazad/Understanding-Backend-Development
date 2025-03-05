@@ -1,0 +1,27 @@
+{
+  "name": "mongodb_",
+  "version": "1.0.0",
+  "description": "mongodb_CRUD",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb_CRUD",
+    "CRUD",
+    "mongodb",
+    "backend"
+  ],
+  "author": "@the_mdazad",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2",
+    "nodemon": "^3.1.0"
+  }
+}

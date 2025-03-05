@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="/public/stylesheets/style.css"> : WRONG WAY:  already we in public due to static file setup -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <!-- Tailwind CDN  -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <title>mini-project-1</title>
+  </head>
+  <body>
+    <p>
+      I'm ejs look like HTML 😁, <br />
+      Rendered with View Engine!
+    </p>
+
+    <!-- Using tailwind css  -->
+    <p class="text-3xl text-amber-400 font-bold">
+      Tailwind CSS in working on me.
+    </p>
+
+    <!-- Performing Calculation in ejs  -->
+    <div class="ejs-calculation">
+      <h2>Performing calculation in ejs</h2>
+      <p>Sum: <%= 2+2 %></p>
+    </div>
+
+
+  </body>
+</html>
