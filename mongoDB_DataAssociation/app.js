@@ -17,10 +17,6 @@ app.get("/userCreate", async (req, res) => {
     email: "halabol@gmail.com",
     age: 23,
     post:[
-      "67c9a317c22766deaff13223",
-      "67c9a317c22766deaff13223",
-      "67c9a317c22766deaff13223",
-      "67c9a317c22766deaff13223",
     ]
   });
   res.send(user);

@@ -1,13 +1,13 @@
 require("dotenv").config();
 
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); 
 
 // creating postSchema
 const postSchema = mongoose.Schema({
   postData: String,
   user: {
     type:mongoose.Schema.Types.ObjectId,
-    ref:'user'
+    ref:'user',
   },
   data: {
     type: Date,

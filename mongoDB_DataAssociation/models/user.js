@@ -22,7 +22,11 @@ const userSchema = mongoose.Schema({
     age:{
         type:Number,
     },
-    posts:Array
+    posts:[
+       { type:mongoose.Schema.Types.Object0Id,
+        ref:'post',
+       }
+    ]
 })
 
 
